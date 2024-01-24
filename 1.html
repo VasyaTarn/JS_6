@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1</title>
+  <style>
+
+    #loginForm {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="loginForm">
+  <h2>Login Form</h2>
+  <form id="userForm" onsubmit="submitForm(event)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="rememberMe">Remember me:</label>
+    <input type="checkbox" id="rememberMe" name="rememberMe">
+
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="output"></div>
+</div>
+
+<script>
+  function submitForm(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+
+    const output = document.getElementById('output');
+
+    if (rememberMe) {
+      output.innerHTML = `Привіт, ${username}! Я тебе запам'ятав.`;
+    } else {
+      output.innerHTML = `Привіт, ${username}! Я тебе не запам'ятав.`;
+    }
+  }
+</script>
+
+</body>
+</html>
